@@ -14,12 +14,12 @@ c = ['b','m','k','r','g','b','m','k','r','g','b','m','k','r','g','b','m',...
     'k','r','g','b','m','k','r','g','b','m','k','r','g','b','m','k','r',...
     'g','b','m','k','r','g','b','m','k','r','g','b','m','k','r','g'];
 
-v = VideoWriter('vehicle_trajectories_changed3.mp4', 'MPEG-4');
+v = VideoWriter('C:\Users\Jens\Documents\Uni Stuttgart\BA\BA ohne Video\formation_control\Videos\vehicle_trajectories_changed.mp4', 'MPEG-4');
 v.FrameRate = 60;
 open(v);
 
 % loop over each data entry of the simout results
-for j=1:5:(timesteps)
+for j=1:20:(timesteps)
     % plot of the reference frame trajectory
     plot(xi_ref.data(:,1),xi_ref.data(:,2));
     axis([-2 2 -1 3])
