@@ -38,19 +38,30 @@ for i=1:1:N
     r_rel_circle(:,i) = [cos(2*pi/N*(i-1)); sin(2*pi/N*(i-1))];
 end
 
+% parabolic shape
+r_rel_parabol = zeros(2,N);
+r_rel_parabol(2,:) = linspace(-1,1,N);
+r_rel_parabol(1,:) = (r_rel_parabol(2,:).^2)*(-1);
+
+
+r_rel_1 = r_rel_line;
+r_rel_2 = r_rel_parabol;
+r_rel_3 = r_rel_circle;
+
 % plot of formations
 pos = figure;
 scrsz = get(groot,'ScreenSize');
 set(pos, 'Name', 'Relative positions2 / Formation', 'NumberTitle', 'off', 'OuterPosition',[0 scrsz(4)/2 scrsz(3)/2 scrsz(4)/2]);
+
 for i=1:1:N
     subplot(1,3,1);
-    plot(r_rel_line(1,i), r_rel_line(2,i),'d');
+    plot(r_rel_1(1,i), r_rel_1(2,i),'d');
     hold on;
     subplot(1,3,2);
-    plot(r_rel_heart(1,i), r_rel_heart(2,i),'d');
+    plot(r_rel_2(1,i), r_rel_2(2,i),'d');
     hold on;
     subplot(1,3,3);
-    plot(r_rel_circle(1,i), r_rel_circle(2,i),'d');
+    plot(r_rel_3(1,i), r_rel_3(2,i),'d');
     hold on;
 end
 
@@ -60,10 +71,5 @@ subplot(1,3,2);
 plot(0,0,'x');
 subplot(1,3,3);
 plot(0,0,'x');
-
-r_rel_1 = r_rel_line;
-r_rel_2 = r_rel_heart;
-r_rel_3 = r_rel_circle;
-
 end
 
