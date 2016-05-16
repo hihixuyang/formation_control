@@ -17,6 +17,8 @@ c = ['b','m','k','r','g','b','m','k','r','g','b','m','k','r','g','b','m',...
 v = VideoWriter('C:\Users\Jens\Documents\Uni Stuttgart\BA\BA ohne Video\Matlab\Consensus_wheeled_formation\4 formation_control\Videos\vehicle_trajectories_changed4.mp4', 'MPEG-4');
 v.FrameRate = 60;
 open(v);
+set(gcf,'render','opengl');
+
 
 % loop over each data entry of the simout results
 for j=1:5:(timesteps)
